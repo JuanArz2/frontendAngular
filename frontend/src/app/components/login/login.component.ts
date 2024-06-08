@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators } from "@angular/forms";
 import { LoginCredentials } from "../../interfaces/loginCredentials";
+import { LoginService } from "../../services/login.service";
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,8 @@ import { LoginCredentials } from "../../interfaces/loginCredentials";
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  loginService: LoginService = inject(LoginService);
+
   loginCredentialsData = new FormGroup({
     email: new FormControl("", Validators.required),
     password: new FormControl("", Validators.required),
@@ -21,14 +24,16 @@ export class LoginComponent {
       const password = this.loginCredentialsData.value.password;
 
       if (typeof email === "string" && typeof password === "string") {
-        const credentialModel: LoginCredentials = {
+        const credentials: LoginCredentials = {
           email,
           password,
         };
-        console.log("crendential ", credentialModel)
+        this.loginService.login(credentials).subscribe((res: any)=>{
+          console.log("Response: ", res)
+        }) // any porque si no hacemos el Backend no sabemos qué vendrá de él
       }
     } else {
-      console.log("Empty fields");
+      console.log("Empty form");
     }
   }
 }
