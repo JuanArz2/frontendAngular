@@ -1,7 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { JwtHelperService } from "@auth0/angular-jwt";
 import { LoginCredentials } from "../../interfaces/loginCredentials";
 import { LoginService } from "../../services/login.service";
+
+const jwtHelperService = new JwtHelperService();
 
 @Component({
   selector: 'app-login',
@@ -11,6 +15,7 @@ import { LoginService } from "../../services/login.service";
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  router = inject(Router);
   loginService: LoginService = inject(LoginService);
 
   loginCredentialsData = new FormGroup({
@@ -28,9 +33,13 @@ export class LoginComponent {
           email,
           password,
         };
-        this.loginService.login(credentials).subscribe((res: any)=>{
-          console.log("Response: ", res)
-        }) // any porque si no hacemos el Backend no sabemos qué vendrá de él
+        this.loginService.login(credentials).subscribe((res: any) => { // any porque si no hacemos el Backend no sabemos qué vendrá de él
+          //console.log("Response: ", res);
+          const decoded = jwtHelperService.decodeToken(res.data.token);
+          //console.log("decoded: ", decoded);
+          localStorage.setItem("token", res.data.token);
+          this.router.navigateByUrl("/shop");
+        });
       }
     } else {
       console.log("Empty form");
