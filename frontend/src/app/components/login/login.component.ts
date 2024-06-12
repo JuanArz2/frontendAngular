@@ -35,7 +35,7 @@ export class LoginComponent {
         };
         this.loginService.login(credentials).subscribe((res: any) => { // any porque si no hacemos el Backend no sabemos qué vendrá de él
           //console.log("Response: ", res);
-          const decoded = jwtHelperService.decodeToken(res.data.token);
+          //const decoded = jwtHelperService.decodeToken(res.data.token);
           //console.log("decoded: ", decoded);
           localStorage.setItem("token", res.data.token);
           this.router.navigateByUrl("/shop");
