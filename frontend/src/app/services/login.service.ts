@@ -18,4 +18,15 @@ export class LoginService {
   validateToken(token: string) {
     return this.httpClient.get(`${this.URL_API}/${token}`);
   }
+
+  isLoged() {
+    const token = localStorage.getItem("token");
+    if (token) {
+      console.log("Is loged")
+      return true;
+    } else {
+      console.log("Isn't loged")
+      return false;
+    }
+  }
 }

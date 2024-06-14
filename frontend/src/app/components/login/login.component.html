@@ -1,5 +1,29 @@
-<form [formGroup]="loginCredentialsData" (ngSubmit)="handleSubmit()">
+<!-- <form [formGroup]="loginCredentialsData" (ngSubmit)="handleSubmit()">
   <input type="text" placeholder="Usuario" formControlName="email" />
   <input type="password" placeholder="Contraseña" formControlName="password" />
   <input type="submit" value="Iniciar Sesión" />
+</form> -->
+
+<form [formGroup]="loginCredentialsData" (ngSubmit)="handleSubmit()">
+  <div class="row py-4">
+    <div class="col">
+      <input
+        type="text"
+        class="form-control"
+        formControlName="email"
+        placeholder="Usuario"
+      />
+    </div>
+    <div class="col">
+      <input
+        type="password"
+        class="form-control"
+        formControlName="password"
+        placeholder="Contraseña"
+      />
+    </div>
+    <div class="d-grid gap-2">
+      <input type="submit" value="Iniciar Sesión" />
+    </div>
+  </div>
 </form>

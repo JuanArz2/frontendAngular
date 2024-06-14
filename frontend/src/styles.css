@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --color-main: #a27035;
+}
+
+.bg-color-main {
+  background-color: var(--color-main);
+}
+
+.f-color {
+  color: white;
+}
+
+.transp {
+  opacity: 0.8;
+}
+
+.cuadro {
+  height: 150px;
+}

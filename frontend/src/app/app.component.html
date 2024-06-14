@@ -1,3 +1,18 @@
 <!-- COMPONENTE PRINCIPAL -->
+<header class="container"></header>
+
 <app-navigation></app-navigation>
-<router-outlet />
+
+<div class="container">
+  <div class="row">
+    <main class="col-lg-8">
+      <router-outlet />
+    </main>
+
+    <aside class="col-lg-4 py-3 text-center">...aside...</aside>
+  </div>
+</div>
+
+<footer class="container-fluid text-center py-3 end">
+  <div>&copy; 2024</div>
+</footer>
