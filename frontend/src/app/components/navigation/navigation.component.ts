@@ -15,7 +15,7 @@ export class NavigationComponent {
   toastrService = inject(ToastrService);
 
 mustLogin() {
-  this.toastrService.warning("Por favor inicia seción");
+  this.toastrService.warning("Por favor inicia sesión");
 }  
 
 }
