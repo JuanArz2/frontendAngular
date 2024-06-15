@@ -19,3 +19,7 @@
 .cuadro {
   height: 150px;
 }
+
+.max-weight {
+  width: max-content;
+}

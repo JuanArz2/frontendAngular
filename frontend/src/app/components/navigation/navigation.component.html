@@ -10,8 +10,8 @@
   </div>
 </nav> -->
 
-<nav class="navbar navbar-expand-lg bg-color-main">
-  <div class="container-fluid">
+<nav class="navbar navbar-expand-lg py-3 bg-color-main">
+  <div class="container-fluid ps-5">
     <a class="navbar-brand" routerLink="home">Wooden Craft</a>
     <button
       class="navbar-toggler"
@@ -26,9 +26,27 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link f-color transp" routerLink="shop">Tienda</a>
-        <a class="nav-link f-color transp" routerLink="login">Iniciar Sesión</a>
+        <a
+          class="nav-link f-color transp"
+          routerLink="shop"
+          (click)="mustLogin()"
+          >Tienda</a
+        >
+        <!-- <a class="nav-link f-color transp" routerLink="login">Iniciar Sesión</a> -->
       </div>
     </div>
+  </div>
+  <div class="pe-3">
+    @if (loginService.isLoged()) {
+    <button
+      type="button"
+      class="btn f-color max-weight"
+      (click)="loginService.logout()"
+    >
+      Cerrar Sesión
+    </button>
+    } @else {
+    <a class="nav-link f-color max-weight" routerLink="login">Iniciar Sesión</a>
+    }
   </div>
 </nav>

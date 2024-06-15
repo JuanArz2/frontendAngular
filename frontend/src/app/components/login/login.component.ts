@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
-import { JwtHelperService } from "@auth0/angular-jwt";
+//import { JwtHelperService } from "@auth0/angular-jwt";
+import { ToastrService } from "ngx-toastr";
 import { LoginCredentials } from "../../interfaces/loginCredentials";
 import { LoginService } from "../../services/login.service";
 
-const jwtHelperService = new JwtHelperService();
+//const jwtHelperService = new JwtHelperService();
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,7 @@ const jwtHelperService = new JwtHelperService();
 })
 export class LoginComponent {
   router = inject(Router);
+  toastrService = inject(ToastrService);
   loginService: LoginService = inject(LoginService);
 
   loginCredentialsData = new FormGroup({
@@ -37,12 +39,18 @@ export class LoginComponent {
           //console.log("Response: ", res);
           //const decoded = jwtHelperService.decodeToken(res.data.token);
           //console.log("decoded: ", decoded);
-          localStorage.setItem("token", res.data.token);
-          this.router.navigateByUrl("/shop");
+          if (res.state === "Successful") {
+            localStorage.setItem("token", res.data.token);
+            this.router.navigateByUrl("/shop"); // Redirigir Way_1
+          } else {
+            /* console.log("Invalid credentials") */
+            this.toastrService.error("Credenciales inválidas");
+          }
         });
       }
     } else {
-      console.log("Empty form");
+      /* console.log("Empty form filds"); */
+      this.toastrService.warning("Capo de credenciales vacío");
     }
   }
 }
