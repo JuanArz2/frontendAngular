@@ -27,12 +27,12 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a
-          class="nav-link f-color transp"
+          class="nav-link color-white opacity"
           routerLink="shop"
           (click)="mustLogin()"
           >Tienda</a
         >
-        <!-- <a class="nav-link f-color transp" routerLink="login">Iniciar Sesión</a> -->
+        <!-- <a class="nav-link color-white opacity" routerLink="login">Iniciar Sesión</a> -->
       </div>
     </div>
   </div>
@@ -40,13 +40,15 @@
     @if (loginService.isLoged()) {
     <button
       type="button"
-      class="btn f-color max-weight"
+      class="btn color-white max-weight"
       (click)="loginService.logout()"
     >
       Cerrar Sesión
     </button>
     } @else {
-    <a class="nav-link f-color max-weight" routerLink="login">Iniciar Sesión</a>
+    <a class="nav-link color-white max-weight" routerLink="login"
+      >Iniciar Sesión</a
+    >
     }
   </div>
 </nav>

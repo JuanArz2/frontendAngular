@@ -15,6 +15,7 @@ export class NavigationComponent {
   toastrService = inject(ToastrService);
 
 mustLogin() {
+  // if (token) {return: false}, else {cod: inicia sesión}
   this.toastrService.warning("Por favor inicia sesión");
 }  
 
