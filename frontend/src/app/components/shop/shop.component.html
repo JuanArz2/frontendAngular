@@ -1,22 +1,185 @@
-<p>Tienda works!</p>
+<!-- 
+ ...........................................................................
+ ...........................................................................
+ .............................. PLACE'S CARDS ..............................
+ ...........................................................................
+ ...........................................................................
+ -->
+@if (products.length > 0) {
+<p>Mostrar Productos</p>
+<ol>
+  @for (product of products; track $index) {
+  <li>
+    <div class="card" style="width: 18rem">
+      <img
+        src="http://localhost:2998/images/products/{{ product.image }}"
+        class="card-img-top"
+        alt="Imagen de un/a {{ product.name }}"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <div
+          class="btn-group"
+          role="group"
+          aria-label="Basic mixed styles example"
+        >
+          <button type="button" class="btn btn-info" (click)="handleMoreInfo()">
+            Más Información
+          </button>
+          <button type="button" class="btn btn-warning" (click)="handleEdit()">
+            Editar
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="handleDelete(product._id)"
+          >
+            Borrar
+          </button>
+        </div>
+        <!-- <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a> -->
+      </div>
+    </div>
+  </li>
+  }
+</ol>
 
-<section>
-  <div class="row py-1 px-4">
-    <div class="height-base border border-color-primary"></div>
-  </div>
+} @else{
+<p>Crea algún producto para mostrarlo</p>
+}
 
-  <div class="row py-1 px-4">
-    <div class="col-lg-6 height-base border border-color-primary"></div>
-    <div class="col-lg-6 height-base border border-color-primary"></div>
-  </div>
+<hr />
 
-  <div class="row py-1 px-4">
-    <div class="height-base border border-color-primary"></div>
-  </div>
+<!-- 
+ ...........................................................................
+ ...........................................................................
+ ............................. USER DATA FORM ..............................
+ ...........................................................................
+ ........................................................................... 
+ -->
 
-  <div class="row py-1 px-4">
-    <div class="col-4 height-base border border-color-primary"></div>
-    <div class="col-4 height-base border border-color-primary"></div>
-    <div class="col-4 height-base border border-color-primary"></div>
+<form (ngSubmit)="createProductSubmit()">
+  <div class="row py-4">
+    <!-- <div class="col">
+      <input
+        type="string"
+        class="form-control"
+        placeholder="name"
+        name="name"
+        [(ngModel)]="name"
+      />
+    </div> -->
+    <div class="mb-3">
+      <label for="inputName" class="form-label">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputName"
+        name="name"
+        [(ngModel)]="name"
+      />
+      <!-- aria-describedby="nameHelp" -->
+    </div>
+
+    <!-- <div class="col">
+      <input
+        type="number"
+        class="form-control"
+        placeholder="height"
+        name="height"
+        [(ngModel)]="height"
+      />
+    </div> -->
+    <div class="mb-3">
+      <label for="inputHeight" class="form-label">Alto</label>
+      <input
+        type="number"
+        class="form-control"
+        id="inputHeight"
+        name="height"
+        [(ngModel)]="height"
+      />
+      <!-- aria-describedby="heightHelp" -->
+    </div>
+
+    <!-- <div class="col">
+      <input
+        type="number"
+        class="form-control"
+        placeholder="weight"
+        name="weight"
+        [(ngModel)]="weight"
+      />
+    </div> -->
+    <div class="mb-3">
+      <label for="inputWeight" class="form-label">Peso</label>
+      <input
+        type="number"
+        class="form-control"
+        id="inputWeight"
+        name="talla"
+        [(ngModel)]="weight"
+      />
+      <!-- aria-describedby="weightHelp" -->
+    </div>
+
+    <!-- <div class="form-check">
+      <input
+        type="boolean"
+        class="form-control"
+        placeholder="inStock"
+        name="inStock"
+        id="form-check-label"
+        [(ngModel)]="inStock"
+      />
+      <label class="form-check-label" for="inputInStock">In Stock</label>
+    </div> -->
+    <div class="mb-3">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="inputInStock"
+          name="inStock"
+          [(ngModel)]="inStock"
+        />
+        <!-- aria-describedby="inStockHelp" -->
+        <label class="form-check-label" for="inputInStock">In Stock</label>
+      </div>
+    </div>
+
+    <!-- <div class="col">
+      <input 
+        type="file"
+        class="form-control"
+        placeholder="image"
+        name="image"
+        (change)="inputFile($event)"
+      />
+    </div> -->
+    <div class="mb-3">
+      <label for="inputImage" class="form-label"
+        >Carga las imagenes del espacio a trabajar</label
+      >
+      <input
+        type="file"
+        class="form-control"
+        id="inputImage"
+        aria-describedby="imageHelp"
+        (change)="inputFile($event)"
+      />
+    </div>
+
+    <!-- <div class="d-grid gap-2">
+      <input type="submit" value="Iniciar Sesión" />
+    </div> -->
+    <button type="submit" class="btn btn-primary bg-my-color col-12">
+      Crear Producto
+    </button>
   </div>
-</section>
+</form>
