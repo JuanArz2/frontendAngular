@@ -1,7 +1,7 @@
-<!-- <nav class="container-fluid py-3 bg-color-main">
+<!-- <nav class="container-fluid py-3 my-bg-color-main">
   <div class="d-flex justify-content-between">
     <span>
-      <a routerLink="home">Inicio</a> | <a routerLink="shop">Tienda</a>
+      <a routerLink="home">Inicio</a> | <a routerLink="shop">Hazlo en Casa</a>
     </span>
     <span></span>
     <span>
@@ -10,9 +10,16 @@
   </div>
 </nav> -->
 
-<nav class="navbar navbar-expand-lg py-3 bg-color-main">
+<nav class="navbar navbar-expand-lg py-3 my-bg-color-main">
   <div class="container-fluid ps-5">
-    <a class="navbar-brand" routerLink="home">Wooden Craft</a>
+    <a class="navbar-brand prata-regular" routerLink="home"
+      ><img
+        class="logo"
+        src="../../../assets/images/favicon.ico"
+        alt="Wooden Craft logo"
+      />
+      Wooden Craft</a
+    >
     <button
       class="navbar-toggler"
       type="button"
@@ -40,7 +47,7 @@
           class="nav-link color-white opacity"
           routerLink="shop"
           (click)="mustLogin()"
-          >Tienda</a
+          >Hazlo en Casa</a
         >
         <!-- <a class="nav-link color-white opacity" routerLink="login">Iniciar Sesión</a> -->
       </div>
@@ -50,13 +57,15 @@
     @if (loginService.isLoged()) {
     <button
       type="button"
-      class="btn color-white max-weight"
+      class="btn color-white max-weight montserrat-regular"
       (click)="loginService.logout()"
     >
       Cerrar Sesión
     </button>
     } @else {
-    <a class="nav-link color-white max-weight" routerLink="login"
+    <a
+      class="nav-link color-white max-weight montserrat-regular"
+      routerLink="login"
       >Iniciar Sesión</a
     >
     }

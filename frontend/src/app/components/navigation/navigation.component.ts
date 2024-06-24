@@ -1,4 +1,4 @@
-import { Component, Inject, inject } from '@angular/core';
+import { Component, Inject /* ¿Inject? */, inject } from '@angular/core';
 import { RouterLink } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { LoginService } from "../../services/login.service";

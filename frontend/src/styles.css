@@ -1,40 +1,156 @@
 /* You can add global styles to this file, and also import other style files */
 
-/* ................... IMPORTS ................... */
+/*  
+ ...........................................................................
+ ...........................................................................
+ ................................. IMPORTS .................................
+ ...........................................................................
+ ........................................................................... 
+ */
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Myeongjo&family=Prata&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 /* ................... Personalized Classes ................... */
 
 :root {
-  --color-main: #a27035;
+  --color-main: #b47d3f;
+  --color-black: #181818;
+  --color-white: white;
 }
 
-.color-white {
-  color: white;
+/*  
+ ...........................................................................
+ ...........................................................................
+ ................................. GLOBAL ..................................
+ ...........................................................................
+ ........................................................................... 
+ */
+
+body {
+  font-family: "roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
-.bg-color-main {
-  background-color: var(--color-main);
+/*  
+ ...........................................................................
+ ...........................................................................
+ .................................. FONTS ..................................
+ ...........................................................................
+ ........................................................................... 
+ */
+
+.montserrat-regular {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
+.montserrat-italic {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.prata-regular {
+  font-family: "prata", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.prata-italic {
+  font-family: "Prata", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.nanum-regular {
+  font-family: "Nanum Myeongjo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.nanum-italic {
+  font-family: "Nanum Myeongjo", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* 
+......................
+....... ROBOTO .......
+......................
+*/
+
+.roboto-thin {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.roboto-light {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-thin-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.roboto-light-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.roboto-regular-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/*  
+ ...........................................................................
+ ...........................................................................
+ .................................. OTHER ..................................
+ ...........................................................................
+ ........................................................................... 
+ */
 
 .opacity {
   opacity: 0.8;
 }
 
-.height-base {
-  height: 150px;
+.my-height {
+  height: 100px;
 }
 
-.max-weight {
-  width: max-content;
+.my-border {
+  border: 0.5px solid #000;
 }
 
-/* ................... Base Classes ................... */
+/* 
+  ......................
+  ....... COLORS .......
+  ......................
+  */
 
-body {
-  font-family: "roboto", sans-serif;
+.my-bg-color-main {
+  background-color: var(--color-main);
+}
+.color-white {
+  color: var(--color-white);
+}
+.color-black {
+  color: var(--color-black);
 }
 
 /* ................... x ................... */

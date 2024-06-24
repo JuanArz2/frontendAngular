@@ -9,10 +9,10 @@ import { PageNotFoundComponent } from "./components/page-not-found/page-not-foun
 
 export const routes: Routes = [
     {path: "aboutUs", title: "Willi Bastiadas", component: AboutUsComponent},
-    {path: "home", title: "Inicio", component: HomeComponent},
+    {path: "home", title: "Wooden Craft", component: HomeComponent},
     {path: "login", title: "Iniciar Sesión", component: LoginComponent},
     {path: "products", title: "Creaciones", component: ProductsComponent},
-    {path: "shop", title: "Tienda", component: ShopComponent, canActivate:[activateGuard]},
+    {path: "shop", title: "Hazlo en Casa", component: ShopComponent, canActivate:[activateGuard]},
     {path: "", redirectTo: "home", pathMatch: "full"},
     {path: "**", title: "404 | Página no Encontrada", component: PageNotFoundComponent},
 ];
