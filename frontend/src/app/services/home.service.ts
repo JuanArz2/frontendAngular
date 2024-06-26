@@ -4,11 +4,11 @@ import { HttpClient } from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
-export class ShopService {
+export class HomeService {
   constructor() {}  
   httpClient = inject(HttpClient);
 
-  API_URL = "http://localhost:2998/shop"; // URL a donde se harán las peticiones (de crear producto)
+  API_URL = "http://localhost:2998/products"; // URL a donde se harán las peticiones (de crear producto)
 
   createProject(
     facility: any,

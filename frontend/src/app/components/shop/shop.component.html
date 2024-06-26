@@ -5,19 +5,19 @@
  ...........................................................................
  ...........................................................................
  -->
-@if (products.length > 0) {
-<p>Mostrar Productos</p>
+@if (projects.length > 0) {
+<!-- Mostrar todos los proyectos iterando -->
 <ol>
-  @for (product of products; track $index) {
+  @for (project of projects; track $index) {
   <li>
     <div class="card" style="width: 18rem">
       <img
-        src="http://localhost:2998/images/products/{{ product.image }}"
+        src="http://localhost:2998/images/projects/{{ project.image }}"
         class="card-img-top"
-        alt="Imagen de un/a {{ product.name }}"
+        alt="Imagen de un/a {{ project.name }}"
       />
       <div class="card-body">
-        <h5 class="card-title">{{ product.name }}</h5>
+        <h5 class="card-title">{{ project.name }}</h5>
         <div class="card">
           <div class="card-body">This is some text within a card body.</div>
         </div>
@@ -35,7 +35,7 @@
           <button
             type="button"
             class="btn btn-danger"
-            (click)="handleDelete(product._id)"
+            (click)="handleDelete(project._id)"
           >
             Borrar
           </button>
@@ -52,7 +52,7 @@
 </ol>
 
 } @else{
-<p>Crea algún producto para mostrarlo</p>
+<p>Mira los proyectos que crees acá</p>
 }
 
 <hr />
@@ -65,7 +65,7 @@
  ........................................................................... 
  -->
 
-<form (ngSubmit)="createProductSubmit()">
+<form (ngSubmit)="createProjectSubmit()">
   <div class="row py-4">
     <!-- <div class="col">
       <input
@@ -83,7 +83,7 @@
         class="form-control"
         id="inputName"
         name="name"
-        [(ngModel)]="name"
+        [(ngModel)]="facility"
       />
       <!-- aria-describedby="nameHelp" -->
     </div>
@@ -125,7 +125,7 @@
         class="form-control"
         id="inputWeight"
         name="talla"
-        [(ngModel)]="weight"
+        [(ngModel)]="width"
       />
       <!-- aria-describedby="weightHelp" -->
     </div>
@@ -149,7 +149,7 @@
           value=""
           id="inputInStock"
           name="inStock"
-          [(ngModel)]="inStock"
+          [(ngModel)]="depth"
         />
         <!-- aria-describedby="inStockHelp" -->
         <label class="form-check-label" for="inputInStock">In Stock</label>
@@ -182,7 +182,7 @@
       <input type="submit" value="Iniciar Sesión" />
     </div> -->
     <button type="submit" class="btn btn-primary bg-my-color col-12">
-      Crear Producto
+      Crear Proyecto
     </button>
   </div>
 </form>

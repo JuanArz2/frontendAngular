@@ -1,6 +1,7 @@
 // import { Token } from '@angular/compiler';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from "@angular/forms"; // HAY QUE ACTIVARLO
+import { DatePipe } from "@angular/common"; // res.xData.xFecha | date : "shortDate"
 // import { JwtHelperService } from "@auth0/angular-jwt";
 import { ToastrService } from "ngx-toastr";
 import { LoginService } from "../../services/login.service";
@@ -12,7 +13,7 @@ import { ShopService } from "../../services/shop.service";
 @Component({
   selector: 'app-shop',
   standalone: true,
-  imports: [FormsModule], // Activado :D
+  imports: [FormsModule],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.css'
 })
@@ -23,13 +24,23 @@ export class ShopComponent {
 
   userName: string = "usuario sin credenciales";
 
-  name: string = "";
+  /* name: string = "";
   height: number = 0;
   weight: number = 0;
   inStock: boolean = false;
+  image: File | null = null; */
+
+  facility: string = "";
+  height: number = 0;
+  width: number = 0;
+  depth: number = 0;
+  redesign: boolean = false;
+  budget: Number = 0;
+  date: Date = new Date();
   image: File | null = null;
 
-  products: any[] = [];
+  allProjects : any[] = [];
+  projects: any[] = [];
 
   inputFile(event: any) {
     /* console.log("Event: ", event) */
@@ -39,25 +50,36 @@ export class ShopComponent {
     }
   };
 
-  createProductSubmit(){
-    /* console.log("...createProductSubmit...")
-    console.log(this.name)
+  createProjectSubmit(){
+    /* console.log("...createProjectSubmit...")
+    console.log(this.facility)
     console.log(this.height)
-    console.log(this.weight)
-    console.log(this.inStock)
+    console.log(this.width)
+    console.log(this.depth)
+    console.log(this.redesign)
+    console.log(this.budget)
+    console.log(this.date)
     console.log(this.image) */
     if (this.image /* COMPARA EL RESTO */) {
-      this.shopService.createProduct(
-        this.name,
+      this.shopService.createProject(
+        this.facility,
         this.height,
-        this.weight,
-        this.inStock,
+        this.width,
+        this.depth,
+        this.redesign,
+        this.budget,
+        this.date,
         this.image
       ).subscribe((res: any) => {
         if (res.state === "Success") {
-          this.toastrService.success(res.state)
+          this.toastrService.success(res.state) /* ARREGLAAAAAAAAAAAAAAAAAAR
+          ARREGLAAAAAAAAAAAAAAAAAAR
+          ARREGLAAAAAAAAAAAAAAAAAAR
+          res.state?
+          ARREGLAAAAAAAAAAAAAAAAAAR
+          ARREGLAAAAAAAAAAAAAAAAAAR */
         } else {
-          this.toastrService.error("Error al crear producto")
+          this.toastrService.error("Error al crear proyecto")
         }
       });
     } else {
@@ -74,11 +96,11 @@ export class ShopComponent {
       if (res.state === "Successful") {
         this.userName = res.data.name;
         this.toastrService.success(`Hola, ${this.userName}!`);
-        this.shopService.getProducts().subscribe((res: any) => {
+        this.shopService.getProjects().subscribe((res: any) => {
           if (res.state === "Success") {
-            this.products = res.data;
+            this.projects = res.data;
           } else {
-            this.toastrService.error("Error al crear producto")
+            this.toastrService.error("Error al crear proyecto")
           }
         })
       } else {
@@ -97,9 +119,9 @@ export class ShopComponent {
   handleEdit() {}
 
   handleDelete(id: string) {
-    this.shopService.deleteProduct(id).subscribe((res: any) => {
+    this.shopService.deleteProject(id).subscribe((res: any) => {
       if (res.state === "Success") {
-        this.toastrService.success("EXCENTE")
+        this.toastrService.success("Proyecto eliminado")
       } else {
         this.toastrService.error("ERROR")
       }
