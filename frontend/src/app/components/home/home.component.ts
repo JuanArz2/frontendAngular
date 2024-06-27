@@ -88,7 +88,7 @@ export class HomeComponent {
     //console.log("Token: ", token);
     if (token) {
     this.loginService.validateToken(token).subscribe((res: any) => {
-      console.log("Response: ", res);
+      /* console.log("Response: ", res); */
       if (res.state === "Successful") {
         this.userName = res.data.name;
         this.toastrService.success(`Hola, ${this.userName}!`);
@@ -115,13 +115,15 @@ export class HomeComponent {
   handleEdit() {}
 
   handleDelete(id: string) {
-    this.homeService.deleteProject(id).subscribe((res: any) => {
-      if (res.state === "Success") {
-        this.toastrService.success("Proyecto eliminado")
-      } else {
-        this.toastrService.error("ERROR")
-      }
-    })
+    let confirmation = confirm("¿Desea ELIMINAR los DATOS de la creación definitivamente?");
+    if (confirmation) {
+      this.homeService.deleteProject(id).subscribe((res: any) => {
+        if (res.state === "Success") {
+          this.toastrService.info("Datos de la creación ELIMINADOS")
+        }
+      })
+    } else {
+      this.toastrService.info("NO se han ELIMINADO los datos")
+    }
   }
-
 }

@@ -92,7 +92,7 @@ export class ShopComponent {
     //console.log("Token: ", token);
     if (token) {
     this.loginService.validateToken(token).subscribe((res: any) => {
-      console.log("Response: ", res);
+      /* console.log("Response: ", res); */
       if (res.state === "Successful") {
         this.userName = res.data.name;
         this.toastrService.success(`Hola, ${this.userName}!`);
@@ -119,15 +119,17 @@ export class ShopComponent {
   handleEdit() {}
 
   handleDelete(id: string) {
-    this.shopService.deleteProject(id).subscribe((res: any) => {
-      if (res.state === "Success") {
-        this.toastrService.success("Proyecto eliminado")
-      } else {
-        this.toastrService.error("ERROR")
-      }
-    })
+    let confirmation = confirm("¿Desea ELIMINAR los DATOS del proyecto definitivamente?");
+    if (confirmation) {
+      this.shopService.deleteProject(id).subscribe((res: any) => {
+        if (res.state === "Success") {
+          this.toastrService.error("Datos del proyecto ELIMINADOS")
+        }
+      })
+    } else {
+      this.toastrService.info("NO se han ELIMINADO los datos")
+    }
   }
-
 }
 
 /* const decoded = jwtHelperService.decodeToken(token);

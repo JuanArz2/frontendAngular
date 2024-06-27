@@ -17,9 +17,13 @@
         alt="Imagen de un/a {{ project.name }}"
       />
       <div class="card-body">
-        <h5 class="card-title">{{ project.name }}</h5>
+        <h5 class="card-title">{{ project.place.facility }}</h5>
         <div class="card">
-          <div class="card-body">This is some text within a card body.</div>
+          <div class="card-body">
+            <!-- {{ "Remodelar: " + project.remodelar }}
+            <br /> -->
+            {{ "Presupuesto: " + project.budget }}
+          </div>
         </div>
         <div
           class="btn-group"

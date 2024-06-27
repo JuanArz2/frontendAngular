@@ -25,7 +25,7 @@ export class LoginService {
 
   isLoged() {
     if (localStorage.getItem("token")) {
-      console.log("Is loged")
+      /* console.log("Is loged") */
       return true;
     } else {
       console.log("Isn't loged")
