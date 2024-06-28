@@ -7,42 +7,50 @@
  -->
 @if (projects.length > 0) {
 <!-- Mostrar todos los proyectos iterando -->
-<ol>
+<ol class="list-style-non">
   @for (project of projects; track $index) {
   <li>
-    <div class="card" style="width: 18rem">
+    <div class="card my-border-radius-rounded mt-4" style="width: 18rem">
       <img
         src="http://localhost:2998/images/projects/{{ project.image }}"
-        class="card-img-top"
+        class="card-img-top my-border-radius-rounded-top"
         alt="Imagen de un/a {{ project.name }}"
       />
-      <div class="card-body">
-        <h5 class="card-title">{{ project.place.facility }}</h5>
-        <div class="card">
-          <div class="card-body">
-            <!-- {{ "Remodelar: " + project.remodelar }}
+      <div class="card-body opacity-decreasing">
+        <h5 class="card-title p-3 nanum-regular">
+          {{ project.place.facility }}
+        </h5>
+        <div>
+          <div class="card-body p-2 my-color-black my-border-radius">
+            <!-- {{ "Remodelar: " + project.redisign => remodelar }}
             <br /> -->
-            {{ "Presupuesto: " + project.budget }}
+            {{ "Presupuesto de: " + project.budget + " COP" }}
+            <br />
+            {{ "Creación del proyecto: " }}
+            {{ project.createdAt | date : "shortDate" }}
           </div>
         </div>
-        <div
-          class="btn-group"
-          role="group"
-          aria-label="Basic mixed styles example"
-        >
-          <button type="button" class="btn btn-info" (click)="handleMoreInfo()">
-            Más Información
-          </button>
-          <button type="button" class="btn btn-warning" (click)="handleEdit()">
-            Editar
-          </button>
-          <button
-            type="button"
-            class="btn btn-danger"
-            (click)="handleDelete(project._id)"
+        <div class="text-center nanum-regular">
+          <div
+            class="btn-group py-2 d-flex justify-content-evenly"
+            role="group"
+            aria-label="Basic mixed styles example"
           >
-            Borrar
-          </button>
+            <button
+              type="button"
+              class="btn my-bg-color-main my-color-white my-border-radius-rounded"
+              (click)="handleEdit(project._id)"
+            >
+              Editar
+            </button>
+            <button
+              type="button"
+              class="btn my-color-white my-bg-color-red my-border-radius-rounded"
+              (click)="handleDelete(project._id)"
+            >
+              Borrar
+            </button>
+          </div>
         </div>
         <!-- <p class="card-text">
           Some quick example text to build on the card title and make up the
@@ -56,11 +64,9 @@
 </ol>
 
 } @else{
-<p>Mira los proyectos que crees acá</p>
+<p class="my-color-white">Mira los proyectos que crees acá</p>
 }
-
-<hr />
-
+<br /><br />
 <!-- 
  ...........................................................................
  ...........................................................................
@@ -69,123 +75,109 @@
  ........................................................................... 
  -->
 
-<form (ngSubmit)="createProjectSubmit()">
+<form class="my-color-white" (ngSubmit)="createProjectSubmit()">
+  <div><h5>¡Crea tu proyecto!</h5></div>
+  <div class="medidas">* <span class="font-little">Campo Requerido</span></div>
   <div class="row py-4">
-    <!-- <div class="col">
-      <input
-        type="string"
-        class="form-control"
-        placeholder="name"
-        name="name"
-        [(ngModel)]="name"
-      />
-    </div> -->
     <div class="mb-3">
-      <label for="inputName" class="form-label">Nombre</label>
+      <label for="facility" class="form-label">* Lugar</label>
       <input
         type="text"
-        class="form-control"
-        id="inputName"
-        name="name"
+        class="form-control width-string"
+        id="facility"
+        placeholder="Escribe el lugar del proyecto"
+        name="facility"
+        required
         [(ngModel)]="facility"
       />
-      <!-- aria-describedby="nameHelp" -->
+      <br />
     </div>
 
-    <!-- <div class="col">
+    <div class="mb-3">
+      <div class="medidas font-little">* Danos las medidas en metros</div>
+      <label for="height" class="form-label">Alto </label>
       <input
         type="number"
-        class="form-control"
-        placeholder="height"
+        class="form-control width-number"
+        id="height"
         name="height"
         [(ngModel)]="height"
       />
-    </div> -->
-    <div class="mb-3">
-      <label for="inputHeight" class="form-label">Alto</label>
-      <input
-        type="number"
-        class="form-control"
-        id="inputHeight"
-        name="height"
-        [(ngModel)]="height"
-      />
-      <!-- aria-describedby="heightHelp" -->
     </div>
 
-    <!-- <div class="col">
-      <input
-        type="number"
-        class="form-control"
-        placeholder="weight"
-        name="weight"
-        [(ngModel)]="weight"
-      />
-    </div> -->
     <div class="mb-3">
-      <label for="inputWeight" class="form-label">Peso</label>
+      <label for="width" class="form-label">Ancho </label>
       <input
         type="number"
-        class="form-control"
-        id="inputWeight"
-        name="talla"
+        class="form-control width-number"
+        id="width"
+        name="width"
         [(ngModel)]="width"
       />
-      <!-- aria-describedby="weightHelp" -->
     </div>
 
-    <!-- <div class="form-check">
-      <input
-        type="boolean"
-        class="form-control"
-        placeholder="inStock"
-        name="inStock"
-        id="form-check-label"
-        [(ngModel)]="inStock"
-      />
-      <label class="form-check-label" for="inputInStock">In Stock</label>
-    </div> -->
     <div class="mb-3">
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value=""
-          id="inputInStock"
-          name="inStock"
-          [(ngModel)]="depth"
-        />
-        <!-- aria-describedby="inStockHelp" -->
-        <label class="form-check-label" for="inputInStock">In Stock</label>
-      </div>
+      <label for="depth" class="form-label">Profundo </label>
+      <input
+        type="number"
+        class="form-control width-number"
+        id="depth"
+        name="depth"
+        [(ngModel)]="depth"
+      />
     </div>
 
-    <!-- <div class="col">
-      <input 
-        type="file"
-        class="form-control"
-        placeholder="image"
-        name="image"
-        (change)="inputFile($event)"
-      />
-    </div> -->
     <div class="mb-3">
       <label for="inputImage" class="form-label"
-        >Carga las imagenes del espacio a trabajar</label
+        >* Carga una sola imagen del lugar del proyecto</label
       >
       <input
         type="file"
-        class="form-control"
+        class="form-control width-string"
         id="inputImage"
+        required
         aria-describedby="imageHelp"
         (change)="inputFile($event)"
       />
     </div>
 
-    <!-- <div class="d-grid gap-2">
-      <input type="submit" value="Iniciar Sesión" />
-    </div> -->
-    <button type="submit" class="btn btn-primary bg-my-color col-12">
+    <div class="mb-3">
+      <br />
+      <br />
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="redesign"
+          name="redesign"
+          [(ngModel)]="redesign"
+        />
+        <!-- aria-describedby="inStockHelp" -->
+        <label class="form-check-label" for="redesign"
+          >¿Quieres que sea remodelación completa ?</label
+        >
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="budget" class="form-label"
+        >Presupuesto para tu proyecto
+        <div class="font-little">*COP</div>
+      </label>
+      <input
+        type="number"
+        class="form-control width-number"
+        id="budget"
+        name="budget"
+        [(ngModel)]="budget"
+      />
+    </div>
+
+    <button
+      type="submit"
+      class="btn bg-my-color col-12 my-color-black my-bg-color-main-light my-border-radius width"
+    >
       Crear Proyecto
     </button>
   </div>

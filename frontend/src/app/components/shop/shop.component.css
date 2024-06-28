@@ -1,0 +1,13 @@
+.medidas {
+  padding-left: 2em;
+  padding-bottom: 15px;
+}
+input.width-string {
+  width: 28em;
+}
+input.width-number {
+  width: 8em;
+}
+button.width {
+  width: 20em;
+}

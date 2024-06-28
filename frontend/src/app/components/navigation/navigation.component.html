@@ -32,42 +32,42 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link color-white opacity" routerLink="products"
+      <!-- <div class="navbar-nav">
+        <a class="nav-link my-color-white opacity" routerLink="products"
           >Creaciones</a
         >
       </div>
       <div class="navbar-nav">
-        <a class="nav-link color-white opacity" routerLink="aboutUs"
+        <a class="nav-link my-color-white opacity" routerLink="aboutUs"
           >Willi Bastidas</a
         >
-      </div>
+      </div> -->
       <div class="navbar-nav">
         <a
-          class="nav-link color-white opacity"
+          class="nav-link my-color-white opacity"
           routerLink="shop"
           (click)="mustLogin()"
           >Hazlo en Casa</a
         >
-        <!-- <a class="nav-link color-white opacity" routerLink="login">Iniciar Sesión</a> -->
+      </div>
+      <div class="pe-3">
+        @if (loginService.isLoged()) {
+        <button
+          type="button"
+          class="btn my-color-white max-weight montserrat-regular"
+          (click)="loginService.logout()"
+        >
+          | Cerrar Sesión |
+        </button>
+        }
+        <!-- @else {
+        <a
+          class="nav-link my-color-white max-weight montserrat-regular"
+          routerLink="login"
+          >| Iniciar Sesión |</a
+        >
+        } -->
       </div>
     </div>
-  </div>
-  <div class="pe-3">
-    @if (loginService.isLoged()) {
-    <button
-      type="button"
-      class="btn color-white max-weight montserrat-regular"
-      (click)="loginService.logout()"
-    >
-      Cerrar Sesión
-    </button>
-    } @else {
-    <a
-      class="nav-link color-white max-weight montserrat-regular"
-      routerLink="login"
-      >Iniciar Sesión</a
-    >
-    }
   </div>
 </nav>

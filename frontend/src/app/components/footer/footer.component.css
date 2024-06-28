@@ -4,11 +4,9 @@
   font-weight: 400;
   font-style: normal;
 
-  height: 150px;
-
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(16, 1fr);
-  align-items: center;
+  align-items: center; */
 }
 
 .logo img {
@@ -18,13 +16,32 @@
 }
 
 .logo {
-  grid-column: 4 / 6;
+  height: 60px;
 }
 
 .shop {
-  grid-column: 6 / 8;
+  height: 60px;
 }
 
 .copyright {
   grid-column: 11;
+  height: 60px;
+  /* min-width: 160px; */
+}
+
+.my-height-logo {
+  height: 55px;
+  margin-top: 15px;
+  margin-right: 600px;
+  margin-left: 5%;
+}
+.my-height-shop {
+  height: 50px;
+  margin-right: 300px;
+  margin-left: 15%;
+}
+.my-height-copyright {
+  height: 30px;
+  margin-right: 0px;
+  margin-left: 30%;
 }

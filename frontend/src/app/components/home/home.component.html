@@ -1,3 +1,63 @@
+<section class="m-3 my-color-white">
+  <h5 class="nanum-regular">Bienvenidos a Wooden Craft | by Willi Basti</h5>
+  <div>
+    <p>
+      En Wooden Craft, by Willi Basti, entendemos que tu hogar es más que solo
+      un espacio físico; es un reflejo de los sueños que tienes y tu estilo de
+      vida. Willi Ball con más de 40 años de experiencia en la industria de la
+      arquitectura a gran escala y unos 6 años en el diseño de interiores, se
+      dedica a transformar tus ideas en realidad, creando ambientes únicos que
+      se adaptan perfectamente a tus necesidades y deseos.
+    </p>
+
+    <br />
+
+    <p>
+      Innovación y Creatividad a tu Alcance. <br />Cada proyecto que creas y nos
+      permites emprender es una oportunidad para innovar y brindar soluciones
+      creativas que elevan la calidad y funcionalidad de tu espacio. <br />Desde
+      la renovación completa de tu cocina hasta la modernización de tu sala de
+      estar con muebles personalizados, pues nos especializamos en convertir
+      cada rincón de tu hogar en un lugar lleno de vida y personalidad por lo
+      alto, como a todos nos gusta. <br />Con un enfoque meticuloso en el
+      detalle y la excelencia. ¡Te garantizamos resultados que superarán tus
+      expectativas!
+    </p>
+
+    <br />
+
+    <p>
+      Tu visión: nuestra misión en Wooden Craft, by Willi Basti. Sabemos que la
+      clave de un diseño exitoso es la colaboración estrecha con nuestros
+      clientes. Escuchamos atentamente tus ideas y trabajamos contigo en cada
+      etapa del proyecto, asegurando que cada decisión refleje tu visión
+      personal. Ya sea que busques una renovación contemporánea o un toque
+      clásico, nuestro equipo de profesionales está aquí para guiarte y
+      brindarte el asesoramiento experto que necesitas.
+    </p>
+
+    <br />
+
+    <p>
+      Experiencia y Profesionalismo Con una trayectoria sólida en el campo de la
+      arquitectura y el diseño de interiores Wooden Craft, by Willi Basti se ha
+      ganado la confianza de numerosos clientes satisfechos. Nuestro compromiso
+      con la calidad y el profesionalismo se refleja en cada proyecto que
+      emprendemos, utilizando materiales de primera calidad y las técnicas más
+      avanzadas para garantizar resultados duraderos y estéticamente impecables.
+    </p>
+
+    <br />
+
+    <p class="nanum-regular final">
+      Adelante, crea un proyecto. ¿Estás listo para dar el siguiente paso hacia
+      el hogar de tus sueños?
+    </p>
+
+    <br />
+  </div>
+</section>
+
 <!-- 
  ...........................................................................
  ...........................................................................
@@ -5,9 +65,9 @@
  ...........................................................................
  ...........................................................................
 -->
-@if (projects.length > 0) {
+<!-- @if (projects.length > 0) { -->
 <!-- Mostrar todos los proyectos iterando -->
-<ol>
+<!-- <ol>
   @for (project of projects; track $index) {
   <li>
     <div class="card" style="width: 18rem">
@@ -39,13 +99,13 @@
           >
             Borrar
           </button>
-        </div>
-        <!-- <p class="card-text">
+        </div> -->
+<!-- <p class="card-text">
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
         </p>
         <a href="#" class="btn btn-primary">Go somewhere</a> -->
-      </div>
+<!-- </div>
     </div>
   </li>
   }
@@ -55,7 +115,7 @@
 <p>Mira los proyectos que crees acá</p>
 }
 
-<hr />
+<hr /> -->
 
 <!-- 
  ...........................................................................
@@ -65,9 +125,9 @@
  ........................................................................... 
  -->
 
-<form (ngSubmit)="createProjectSubmit()">
-  <div class="row py-4">
-    <!-- <div class="col">
+<!-- <form (ngSubmit)="createProjectSubmit()">
+  <div class="row py-4"> -->
+<!-- <div class="col">
       <input
         type="string"
         class="form-control"
@@ -76,14 +136,14 @@
         [(ngModel)]="name"
       />
     </div> -->
-    <div class="mb-3">
+<!-- <div class="mb-3">
       <label for="inputName" class="form-label">Nombre</label>
-      <input type="text" class="form-control" id="inputName" name="name" />
-      <!-- [(ngModel)]="facility" -->
-      <!-- aria-describedby="nameHelp" -->
-    </div>
+      <input type="text" class="form-control" id="inputName" name="name" /> -->
+<!-- [(ngModel)]="facility" -->
+<!-- aria-describedby="nameHelp" -->
+<!-- </div> -->
 
-    <!-- <div class="col">
+<!-- <div class="col">
       <input
         type="number"
         class="form-control"
@@ -92,19 +152,19 @@
         [(ngModel)]="height"
       />
     </div> -->
-    <div class="mb-3">
+<!-- <div class="mb-3">
       <label for="inputHeight" class="form-label">Alto</label>
       <input
         type="number"
         class="form-control"
         id="inputHeight"
         name="height"
-      />
-      <!-- [(ngModel)]="height" -->
-      <!-- aria-describedby="heightHelp" -->
-    </div>
+      /> -->
+<!-- [(ngModel)]="height" -->
+<!-- aria-describedby="heightHelp" -->
+<!-- </div> -->
 
-    <!-- <div class="col">
+<!-- <div class="col">
       <input
         type="number"
         class="form-control"
@@ -113,14 +173,14 @@
         [(ngModel)]="weight"
       />
     </div> -->
-    <div class="mb-3">
+<!-- <div class="mb-3">
       <label for="inputWeight" class="form-label">Peso</label>
-      <input type="number" class="form-control" id="inputWeight" name="talla" />
-      <!-- [(ngModel)]="width" -->
-      <!-- aria-describedby="weightHelp" -->
-    </div>
+      <input type="number" class="form-control" id="inputWeight" name="talla" /> -->
+<!-- [(ngModel)]="width" -->
+<!-- aria-describedby="weightHelp" -->
+<!-- </div> -->
 
-    <!-- <div class="form-check">
+<!-- <div class="form-check">
       <input
         type="boolean"
         class="form-control"
@@ -131,7 +191,7 @@
       />
       <label class="form-check-label" for="inputInStock">In Stock</label>
     </div> -->
-    <div class="mb-3">
+<!-- <div class="mb-3">
       <div class="form-check">
         <input
           class="form-check-input"
@@ -139,14 +199,14 @@
           value=""
           id="inputInStock"
           name="inStock"
-        />
-        <!-- [(ngModel)]="depth" -->
-        <!-- aria-describedby="inStockHelp" -->
-        <label class="form-check-label" for="inputInStock">In Stock</label>
+        /> -->
+<!-- [(ngModel)]="depth" -->
+<!-- aria-describedby="inStockHelp" -->
+<!-- <label class="form-check-label" for="inputInStock">In Stock</label>
       </div>
-    </div>
+    </div> -->
 
-    <!-- <div class="col">
+<!-- <div class="col">
       <input 
         type="file"
         class="form-control"
@@ -155,7 +215,7 @@
         (change)="inputFile($event)"
       />
     </div> -->
-    <div class="mb-3">
+<!-- <div class="mb-3">
       <label for="inputImage" class="form-label"
         >Carga las imagenes del espacio a trabajar</label
       >
@@ -166,13 +226,13 @@
         aria-describedby="imageHelp"
         (change)="inputFile($event)"
       />
-    </div>
+    </div> -->
 
-    <!-- <div class="d-grid gap-2">
+<!-- <div class="d-grid gap-2">
       <input type="submit" value="Iniciar Sesión" />
     </div> -->
-    <button type="submit" class="btn btn-primary bg-my-color col-12">
+<!-- <button type="submit" class="btn btn-primary bg-my-color col-12">
       Crear Proyecto
     </button>
   </div>
-</form>
+</form> -->

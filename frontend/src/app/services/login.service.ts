@@ -28,7 +28,7 @@ export class LoginService {
       /* console.log("Is loged") */
       return true;
     } else {
-      console.log("Isn't loged")
+      /* console.log("Isn't loged") */
       return false;
     }
   }

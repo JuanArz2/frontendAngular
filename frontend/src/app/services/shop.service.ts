@@ -41,21 +41,7 @@ export class ShopService {
   }
   
   putProject(id: string) {
-    /* return this.httpClient.put(this.API_URL + "/" + id); 
-    TERMINAR
-    TERMINAR
-    TERMINAR
-    TERMINAR
-    TERMINAR
-    TERMINAR
-    TERMINAR
-    TERMINAR
-    TERMINAR
-    TERMINAR
-    TERMINAR
-    TERMINAR
-    TERMINAR
-    */
+    /* return this.httpClient.put(this.API_URL + "/" + id); */
   }
   
   deleteProject(id: string) {

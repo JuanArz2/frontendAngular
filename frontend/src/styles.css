@@ -14,8 +14,11 @@
 
 :root {
   --color-main: #b47d3f;
+  --color-main-light: #ffc600;
   --color-black: #181818;
   --color-white: white;
+  --color-blue-light: #a2d2ff;
+  --color-red: #ef233c;
 }
 
 /*  
@@ -27,9 +30,17 @@
  */
 
 body {
-  font-family: "roboto", sans-serif;
+  font-family: "nanum", sans-serif;
   font-weight: 300;
   font-style: normal;
+
+  background-color: var(--color-black);
+}
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
 }
 
 /*  
@@ -117,6 +128,10 @@ body {
   font-style: italic;
 }
 
+.font-little {
+  font-size: 12px;
+}
+
 /*  
  ...........................................................................
  ...........................................................................
@@ -137,6 +152,25 @@ body {
   border: 0.5px solid #000;
 }
 
+.my-border-radius {
+  border-radius: 15px;
+}
+.my-border-radius-rounded {
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+.my-border-radius-rounded-top {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 50px;
+}
+.opacity-decreasing {
+  background: linear-gradient(rgba(180, 125, 63, 0.9), rgba(180, 125, 63, 0.6));
+  border-bottom-right-radius: 50px;
+}
+
 /* 
   ......................
   ....... COLORS .......
@@ -146,10 +180,25 @@ body {
 .my-bg-color-main {
   background-color: var(--color-main);
 }
-.color-white {
+.my-bg-color-main-light {
+  background-color: var(--color-main-light);
+}
+.my-bg-color-blue-light {
+  background-color: var(--color-blue-light);
+}
+.my-bg-color-black {
+  background-color: var(--color-black);
+}
+.my-color-main-light {
+  color: var(--color-main-light);
+}
+.my-bg-color-red {
+  background-color: var(--color-red);
+}
+.my-color-white {
   color: var(--color-white);
 }
-.color-black {
+.my-color-black {
   color: var(--color-black);
 }
 
