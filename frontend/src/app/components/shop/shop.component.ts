@@ -107,7 +107,7 @@ export class ShopComponent {
       }
     });
   } else {
-    console.log("There's no token");
+    /* console.log("There's no token"); */
     this.loginService.logout();
     }
   }
