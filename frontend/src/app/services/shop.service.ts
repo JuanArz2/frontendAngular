@@ -8,7 +8,9 @@ export class ShopService {
   constructor() {}  
   httpClient = inject(HttpClient);
 
-  API_URL = "http://localhost:2998/shop"; // URL a donde se harán las peticiones (de crear producto)
+  API_URL = "http://18.118.115.16:3000/shop"; // BACKEND AWS URL a donde se harán las peticiones (de crear producto)
+  
+  /* API_URL = "http://localhost:3000/shop"; // URL a donde se harán las peticiones (de crear producto) */
 
   createProject(
     facility: any,

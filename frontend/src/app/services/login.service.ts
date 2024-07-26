@@ -13,14 +13,16 @@ export class LoginService {
   router = inject(Router);
   toastrService = inject(ToastrService);
 
-  URL_API = "http://localhost:2998/login";
+  API_URL = "http://18.118.115.16:3000/shop"; // BACKEND AWS URL a donde se harán las peticiones (del shop)
+
+  /* API_URL = "http://localhost:3000/login"; */
 
   login(userCredentials: LoginCredentials){
-    return this.httpClient.post(this.URL_API, userCredentials);
+    return this.httpClient.post(this.API_URL, userCredentials);
   }
 
   validateToken(token: string) {
-    return this.httpClient.get(`${this.URL_API}/${token}`);
+    return this.httpClient.get(`${this.API_URL}/${token}`);
   }
 
   isLoged() {
