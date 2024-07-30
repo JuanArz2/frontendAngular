@@ -13,7 +13,7 @@ export class LoginService {
   router = inject(Router);
   toastrService = inject(ToastrService);
 
-  API_URL = "http://18.118.115.16:3000/shop"; // BACKEND AWS URL a donde se harán las peticiones (del shop)
+  API_URL = "http://18.118.115.16:3000/login"; // BACKEND AWS URL a donde se harán las peticiones (del login)
 
   /* API_URL = "http://localhost:3000/login"; */
 
